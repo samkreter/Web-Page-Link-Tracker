@@ -24,20 +24,32 @@ class Driver:
 
 
 
-    def checkOrphans(self,websiteId):
-        website = self.websites[websiteId]
-        homepage = website.getHomepage()
-        if  homepage != -1:
-            return list(website.getPages() - website.getPage(homepage).getLinks())
+    def pageCount(self,websiteId):
+        if websiteId in self.websites:
+            return self.websites[websiteId].getPageCount()
         else:
-            return website.getPages();
+            return -1
+
+    def checkOrphans(self,websiteId):
+        if websiteId in self.websites:
+            website = self.websites[websiteId]
+            homepage = website.getHomepage()
+            if  homepage != -1:
+                return list(website.getPages() - website.getPage(homepage).getLinks())
+            else:
+                return website.getPages();
+        else:
+            return -1
 
     #used to query the homepage
     def hasHomepage(self,websiteId):
-        if self.websites[websiteId].getHomepage() != -1:
-            return True
+        if websiteId in self.websites:
+            if self.websites[websiteId].getHomepage() != -1:
+                return True
+            else:
+                return False
         else:
-            return False
+            return -1
 
 
     def getWebsites(self):

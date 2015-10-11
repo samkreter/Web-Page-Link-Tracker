@@ -36,4 +36,7 @@ class Website():
       else:
         return -1
 
+    def getPageCount(self):
+      return self.pageCount
+
 

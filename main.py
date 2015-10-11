@@ -3,4 +3,4 @@ from driver import Driver
 driver = Driver()
 
 
-print(driver.checkOrphans(0))
+print(driver.pageCount(0))
