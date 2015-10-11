@@ -1,0 +1,22 @@
+{
+  "pages": [
+    {
+      "id": 0,
+      "website": 0,
+      "home": true,
+      "url": "http://apropose.com/"
+    },
+    {
+      "id": 1,
+      "website": 0,
+      "home": false,
+      "url": "http://apropose.com/about"
+    },
+    {
+      "id": 2,
+      "website": 0,
+      "home": false,
+      "url": "http://apropose.com/jobs"
+    }
+  ]
+}
