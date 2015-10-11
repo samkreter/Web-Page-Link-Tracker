@@ -23,6 +23,19 @@ class Driver:
             self.websites[self.pageLookup[link['from']]].addLink(link['from'],link['to'])
 
 
+    def numSitesLinkedTo(self,websiteId):
+        if websiteId not in self.websites:
+            return -1
+        else:
+            otherSites = list()
+            website = self.websites[websiteId]
+            for page in website.getPages():
+                for link in self.pages[page].getLinks():
+                    if(self.pageLookup[link] != websiteId):
+                        otherSites.append(self.pageLookup[link])
+
+            return otherSites
+
 
     def pageCount(self,websiteId):
         if websiteId in self.websites:
@@ -31,25 +44,25 @@ class Driver:
             return -1
 
     def checkOrphans(self,websiteId):
-        if websiteId in self.websites:
+        if websiteId not in self.websites:
+           return -1
+        else:
             website = self.websites[websiteId]
             homepage = website.getHomepage()
             if  homepage != -1:
                 return list(website.getPages() - website.getPage(homepage).getLinks())
             else:
                 return website.getPages();
-        else:
-            return -1
 
     #used to query the homepage
     def hasHomepage(self,websiteId):
         if websiteId in self.websites:
+            return -1
+        else:
             if self.websites[websiteId].getHomepage() != -1:
                 return True
             else:
                 return False
-        else:
-            return -1
 
 
     def getWebsites(self):

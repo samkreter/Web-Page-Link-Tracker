@@ -3,4 +3,4 @@ from driver import Driver
 driver = Driver()
 
 
-print(driver.pageCount(0))
+print(driver.numSitesLinkedTo(0))
