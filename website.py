@@ -22,7 +22,7 @@ class Website():
                 self.homepage = pageId
 
     def getHomepage(self):
-        return this.homepage
+        return self.homepage
 
     def addLink(self,fromLink, to):
         self.pages[fromLink].addLink(to)
