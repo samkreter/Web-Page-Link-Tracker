@@ -24,10 +24,11 @@ class Driver:
 
 
 
-    def checkOrphans(self,website):
+    def checkOrphans(self,websiteId):
+        website = self.websites[websiteId]
         homepage = website.getHomepage()
         if  homepage != -1:
-            return webiste.getPages() - website.getPage(homepage)
+            return list(website.getPages() - website.getPage(homepage).getLinks())
         else:
             return website.getPages();
 

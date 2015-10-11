@@ -20,5 +20,8 @@ class Page():
     def addLink(self,to):
         self.links.add(to)
 
+    def getLinks(self):
+        return self.links
+
     def getPageId(self):
         return self.id

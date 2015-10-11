@@ -31,7 +31,7 @@ class Website():
       return self.pageIds
 
     def getPage(self,pageId):
-      if pageId in self.pages[pageId]:
+      if pageId in self.pages:
         return self.pages[pageId]
       else:
         return -1
