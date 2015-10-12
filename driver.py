@@ -9,20 +9,26 @@ from website import Website
 from page import Page
 
 
+#used to controller the quering and store the lookup tables
 class Driver:
     def __init__(self):
+        #stores websites witht their id as the key to the dict
         self.websites = self.getWebsites()
+        #used for fast lookup of what website a page belongs to
         self.pageLookup = dict()
+        #stores pages with their id as the key to the dict
         self.pages = self.getPages()
+        #json info for the links
         self.links = self.getLinks()
+        #create an ajancency list to call bfs to find paths between pages
         self.alistForLinks = self.getAlistForLinks()
 
-        print(self.bfs(6,10))
         #adding pages to their websites
         for pageId, page in self.pages.iteritems():
             if page.getWebId() in self.websites:
                 self.websites[page.getWebId()].addPage(page);
 
+        #add links into the pages of each website
         for link in self.links:
             self.websites[self.pageLookup[link['from']]].addLink(link['from'],link['to'])
 
@@ -83,7 +89,7 @@ class Driver:
             else:
                 print("doeesn't have homepage")
 
-
+    #parese the json and extract the websites
     def getWebsites(self):
         websites = dict()
 
@@ -96,7 +102,7 @@ class Driver:
         return websites
 
 
-
+    #parse to get pages info
     def getPages(self):
         pages = dict()
         with open('data1/pages.json') as data_file:
@@ -114,6 +120,7 @@ class Driver:
         with open('data1/links.json') as data_file:
              return json.load(data_file)['links']
 
+    #construct the alist
     def getAlistForLinks(self):
         graph = {}
         for link in self.links:
@@ -125,6 +132,7 @@ class Driver:
         return graph
 
 
+    #return the shortest path for the pages passed in
     def bfs(self, src, dest):
         vis = set() # stores the vertices that have been visited
         par = {} # stores parent information. vertex -> parent vertex in BFS tree

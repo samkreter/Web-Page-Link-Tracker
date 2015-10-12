@@ -1,5 +1,7 @@
 from sets import Set
 
+
+#stores all the page data
 class Page():
     def __init__(self, details):
         self.id = details['id']

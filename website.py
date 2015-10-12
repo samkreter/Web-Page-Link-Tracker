@@ -1,7 +1,7 @@
 from sets import Set
 from pprint import pprint
 
-
+#stores website Data
 class Website():
 
     def __init__(self,details):
@@ -27,6 +27,7 @@ class Website():
     def addLink(self,fromLink, to):
         self.pages[fromLink].addLink(to)
 
+    #get pages as a set of their ids for faster lookup
     def getPages(self):
       return self.pageIds
 
