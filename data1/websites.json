@@ -1,0 +1,32 @@
+{
+  "websites": [
+    {
+      "id": 0,
+      "name": "Website 0"
+    },
+    {
+      "id": 1,
+      "name": "Website 1"
+    },
+    {
+      "id": 2,
+      "name": "Website 2"
+    },
+    {
+      "id": 3,
+      "name": "Apropose, Inc."
+    },
+    {
+      "id": 4,
+      "name": "Google"
+    },
+    {
+      "id": 5,
+      "name": "Yahoo"
+    },
+    {
+      "id": 6,
+      "name": "BBC"
+    }
+  ]
+}

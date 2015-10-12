@@ -1,2 +1,3 @@
-# websiteLinkTrackerTest
-Given an input of websites, links, and webpages find data based on them
+
+To run:
+python main.py

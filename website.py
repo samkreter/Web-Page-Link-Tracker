@@ -30,9 +30,6 @@ class Website():
     def getPages(self):
       return self.pageIds
 
-    def getPages(self):
-      return self.pages
-
     def getPage(self,pageId):
       if pageId in self.pages:
         return self.pages[pageId]
